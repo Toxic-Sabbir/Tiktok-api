@@ -7,7 +7,7 @@ import hashlib
 import urllib
 import time
 
-from utils.signature import signature
+from .utils.signature import signature
 
 class TikTok:
     def __init__(
@@ -15,8 +15,9 @@ class TikTok:
         session_id: str
         ) -> None:
 
-        self.api_url = "https://api-h2.tiktokv.com/"
+        self.base_url = "https://api-h2.tiktokv.com/"
         self.session = requests.Session()
+
         self.headers = {
             "accept-encoding": "gzip",
             "connection": "Keep-Alive",
@@ -27,9 +28,6 @@ class TikTok:
             "user-agent": "okhttp/3.10.0.1",
             "x-ss-req-ticket": str(int(time.time() * 1000))
         }
-        self.session.headers.update(self.headers)
-        self.session.cookies = f"sessionid={session_id}" if session_id != None else secrets.token_hex(32)
-
         self.params = {
             'manifest_version_code': 190103, 
             '_rticket': int(round(time.time() * 1000)), 
@@ -73,11 +71,14 @@ class TikTok:
             'aid': 1180, 
             'ts': int(time.time())
         }
+        self.session.headers.update(self.headers)
         self.session.params.update(self.params)
-
-    @staticmethod
-    def xor(string: str) -> str:
-        return "".join([hex(int(x ^ 5))[2:] for x in string.encode('utf-8')])
+        self.session.cookies.update({"sessionid": session_id if session_id != None else secrets.token_hex(32)})
+    
+    # ---- Will be used later ----
+    #@staticmethod
+    #def xor(string: str) -> str:
+    #    return "".join([hex(int(x ^ 5))[2:] for x in string.encode('utf-8')])
 
     @staticmethod
     def query(data: str) -> str:
@@ -106,7 +107,7 @@ class TikTok:
         })
 
         return self.session.post(
-            url = self.api_url + "aweme/v1/commit/user/?" if choice != "username" else "passport/login_name/update/?",
+            url = self.base_url + "aweme/v1/commit/user/?" if choice != "username" else "passport/login_name/update/?",
             data = data
         ).json()
 
@@ -143,9 +144,6 @@ class TikTok:
 
         return self.edit_profile("username", bio, user_id, session_id)
 
-
-    ## Returns blank response, open an issue or pull request if you've found a solution! :)
-
     def check_username(self, username: str) -> dict:
         """
         Makes a get request to check a username.
@@ -164,7 +162,7 @@ class TikTok:
             ).get_value()
         })
     
-        return self.session.post(url = self.api_url + "aweme/v1/unique/id/check/?").json()
+        return self.session.post(url = self.base_url + "aweme/v1/unique/id/check/?").json()
 
     def following_followers(self, choice: str, user_id: int, sec_user_id: str, count: int) -> dict:
         self.session.params.update(
@@ -186,8 +184,7 @@ class TikTok:
             ).get_value()
         })
 
-        return self.session.get(url = self.api_url + f"aweme/v1/user/{choice}/list/?").json()
-
+        return self.session.get(url = self.base_url + f"aweme/v1/user/{choice}/list/?").json()
 
     def following_list(self, user_id: int, sec_user_id: str, count: int) -> dict:
         """
@@ -215,7 +212,6 @@ class TikTok:
 
         return self.following_followers("followers", user_id, session_id, count)
 
-
     def toggle_like(self, type: int, video_id: int):
         self.session.params.update(
             {
@@ -233,7 +229,7 @@ class TikTok:
             ).get_value()
         })
 
-        return self.session.post(url = self.api_url + "aweme/v1/commit/item/digg/?").json()
+        return self.session.post(url = self.base_url + "aweme/v1/commit/item/digg/?").json()
 
     def like_video(self, video_id: int) -> dict:
         """
@@ -245,7 +241,6 @@ class TikTok:
 
         return self.toggle_like(1, video_id)
 
-
     def unlike_video(self, video_id: int) -> dict:
         """
         Makes a post request to unlike a video.
@@ -255,7 +250,6 @@ class TikTok:
         """
 
         return self.toggle_like(0, video_id, session_id)
-
 
     def toggle_follow(self, type: int, sec_user_id: int):
         self.session.params.update(
@@ -277,7 +271,7 @@ class TikTok:
             ).get_value()
         })
 
-        return self.session.post(url = self.api_url + "aweme/v1/commit/follow/user/?").json()
+        return self.session.post(url = self.base_url + "aweme/v1/commit/follow/user/?").json()
 
     def follow(self, sec_user_id: str) -> dict:
         """
