@@ -7,14 +7,12 @@ import hashlib
 import urllib
 import time
 
-from utils.signature import signature
+from .utils.signature import signature
 
 class TikToksAPI:
     def __init__(
         self,
-        session_id: str,
-        custom_device_id: dict = None,
-        proxy: str = None
+        session_id: str
     ) -> None:
 
         self.base_url = "https://api-h2.tiktokv.com/"
