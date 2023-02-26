@@ -143,6 +143,9 @@ class TikToksAPI:
     def verify(self) -> requests.Response:
         """
         Verifies sesssion ID.
+        
+        Args:
+            None
 
         Returns:
             requests.Response: The response object containing information about the session ID.
