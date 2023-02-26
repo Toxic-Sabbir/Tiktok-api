@@ -233,7 +233,7 @@ class TikToksAPI:
 
     def following_list(self, username: str, count: int) -> requests.Response:
         """
-        Gets the list of users that a specified user is following by their username.
+        Gets the list of a users following by their username.
 
         Args:
             username (str): The username of the user whose following list to retrieve.
@@ -247,7 +247,7 @@ class TikToksAPI:
 
     def followers_list(self, username: str, count: int) -> requests.Response:
         """
-        Gets the list of users that are following a specified user by their username.
+        Gets the list of a users followers by their username.
 
         Args:
             username (str): The username of the user whose followers list to retrieve.
