@@ -9,7 +9,7 @@ from TikToksAPI import TikToksAPI
 # Create an instance of TikToksAPI with session ID
 user = TikToksAPI(session_id="your_session_id")
 
-# Optional 
+# custom_device_id - Optional 
 user = TikToksAPI(session_id="your_session_id", custom_device_id={"did": 138928392, "iid": 283784376398})
 ```
 
