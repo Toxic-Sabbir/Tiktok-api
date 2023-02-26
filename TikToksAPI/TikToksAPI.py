@@ -231,12 +231,12 @@ class TikToksAPI:
 
         return self.session.get(url = self.base_url + f"aweme/v1/user/{choice}/list/?")
 
-    def following_list(self, username: int, count: int) -> requests.Response:
+    def following_list(self, username: str, count: int) -> requests.Response:
         """
         Gets the list of users that a specified user is following by their username.
 
         Args:
-            username (int): The username of the user whose following list to retrieve.
+            username (str): The username of the user whose following list to retrieve.
             count (int): The maximum number of users to retrieve.
 
         Returns:
@@ -245,12 +245,12 @@ class TikToksAPI:
 
         return self.following_followers("following", username, count)
 
-    def followers_list(self, username: int, count: int) -> requests.Response:
+    def followers_list(self, username: str, count: int) -> requests.Response:
         """
         Gets the list of users that are following a specified user by their username.
 
         Args:
-            username (int): The username of the user whose followers list to retrieve.
+            username (str): The username of the user whose followers list to retrieve.
             count (int): The maximum number of users to retrieve.
 
         Returns:
