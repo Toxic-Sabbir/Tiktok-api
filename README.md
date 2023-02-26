@@ -1,4 +1,4 @@
-<h1 align="center">📱 TikToksAPI (Not finished)</h1>
+<h1 align="center">📱 TikToksAPI</h1>
 TikToksAPI is a Python library for automating interactions with the TikTok API, such as retrieving user information and managing likes and follows.
 
 ### `🔥` Features (More to come)
@@ -22,6 +22,7 @@ TikToksAPI is a Python library for automating interactions with the TikTok API, 
 ### `⚙️` Setup
 - Star this project or else it wont work
 - Run the following command in CMD: `pip install requests Terminalia`
+- Read [Documentation](https://github.com/aithedev/TikToksAPI/blob/main/DOCUMENTATION.md)
 ***
 
 ### `🤝` Contributing
