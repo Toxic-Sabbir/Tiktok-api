@@ -132,6 +132,12 @@ class TikToksAPI:
         }
 
     def verify(self) -> requests.Response:
+        """
+        Verifies sesssion ID.
+
+        Returns:
+            requests.Response: The response object containing information about the session ID.
+        """
         return self.user_info()
     
     def edit(self, enum: str, text: str) -> requests.Response: 
