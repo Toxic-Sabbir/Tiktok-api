@@ -2,20 +2,22 @@
 TikToksAPI is a Python library for automating interactions with the TikTok API, such as retrieving user information and managing likes and follows.
 
 ### `🔥` Features (More to come)
-+ User
-  + `Un/follow a user`
-  + `Get followers list`
-  + `Get following list`
-  + Verify session ID
-+ Posts
-  + `Un/like a video`
 + Profile
   + `Edit bio`
   + `Edit nickname`
   + `Edit username`
   + `Check username`
++ User
+  + `Un/follow a user`
+  + `Get followers list`
+  + `Get following list`
+  + `Verify session ID`
++ Posts
+  + `Un/like a video`
 + Algorithms
   + `X-Gorgon & X-Khronos` [repo](https://github.com/aithedev/X-Gorgon)
++ Misc
+  + `Cookies to session ID`
 
 ### `⚙️` Setup
 - Star this project or else it wont work
