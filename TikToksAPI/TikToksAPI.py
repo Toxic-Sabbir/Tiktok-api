@@ -13,7 +13,8 @@ from .utils.signature import signature
 class TikToksAPI:
     def __init__(
         self,
-        session_id: str
+        session_id: str,
+        custom_device_id: dict = None
     ) -> None:
 
         self.base_url = "https://api-h2.tiktokv.com/"
@@ -35,7 +36,7 @@ class TikToksAPI:
             'current_region': 'BE', 
             'app_language': 'en', 
             'app_type': 'normal', 
-            'iid': 7183409061831001857, 
+            'iid': 7183409061831001857 if self.custom_device_id == None else custom_device_id['iid'], 
             'channel': 'googleplay', 
             'device_type': 'ASUS_Z01QD', 
             'language': 'en', 
@@ -55,7 +56,7 @@ class TikToksAPI:
             'residence': 'BE', 
             'carrier_region': 'BE', 
             'ac': 'wifi', 
-            'device_id': 7147445232161539590, 
+            'device_id': 7147445232161539590 if self.custom_device_id == None else custom_device_id['did'], 
             'mcc_mnc': 20610, 
             'os_version': 9, 
             'timezone_offset': 28800, 
