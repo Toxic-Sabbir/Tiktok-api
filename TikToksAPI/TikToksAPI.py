@@ -143,7 +143,7 @@ class TikToksAPI:
     def verify(self) -> requests.Response:
         """
         Verifies sesssion ID.
-        
+
         Args:
             None
 
@@ -157,7 +157,7 @@ class TikToksAPI:
         Edits the specified text using the specified enumeration.
     
         Args:
-            enum (str): The enumeration to use for the edit.
+            enum (str): The enumeration to use for the edit. "signature" or "nickname" or "username"
             text (str): The text to edit.
     
         Returns:
