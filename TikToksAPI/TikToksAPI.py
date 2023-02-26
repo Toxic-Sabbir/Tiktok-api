@@ -332,7 +332,7 @@ class TikToksAPI:
         Follows a specified user.
 
         Args:
-            username (str): The username of the user to unfollow.
+            username (str): The username of the user to follow.
 
         Returns:
             requests.Response: The response object containing information about the follow action.
@@ -346,7 +346,7 @@ class TikToksAPI:
         Unfollows a specified user.
 
         Args:
-            username (str): The username of the user to follow.
+            username (str): The username of the user to unfollow.
 
         Returns:
             requests.Response: The response object containing information about the unfollow action.
