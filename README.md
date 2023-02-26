@@ -1,5 +1,5 @@
 <h1 align="center">📱 TikToksAPI (Not finished)</h1>
-TikToks private mobile API allows developers to access the full range of TikTok's private mobile API endpoints, providing comprehensive and in-depth functionality for building TikTok-based applications and integrations.
+TikToksAPI is a Python library for automating interactions with the TikTok API, such as retrieving user information and managing likes and follows.
 
 ### `🔥` Features (More to come)
 + User
