@@ -1,5 +1,5 @@
 # www.aithe.dev
-# github.com/aithedev/TikTok-Private-API
+# github.com/aithedev/TikToksAPI
 
 import Terminalia
 import requests
