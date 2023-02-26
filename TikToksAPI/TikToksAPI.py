@@ -82,6 +82,15 @@ class TikToksAPI:
 
     @staticmethod
     def cookies_to_session(cookies: str) -> str:
+        """
+        Convert cookies string to session ID.
+    
+        Args:
+            cookies (str): A string of cookies received from a client.
+    
+        Returns:
+            str: The session ID parsed from the cookies string.
+        """
         return cookies.split(";")[13].replace(" ", "")
 
     @staticmethod
@@ -221,10 +230,10 @@ class TikToksAPI:
 
     def following_list(self, username: int, count: int) -> requests.Response:
         """
-        Gets the list of users that a specified user is following by their user ID.
+        Gets the list of users that a specified user is following by their username.
 
         Args:
-            username (int): The user ID of the user whose following list to retrieve.
+            username (int): The username of the user whose following list to retrieve.
             count (int): The maximum number of users to retrieve.
 
         Returns:
@@ -235,10 +244,10 @@ class TikToksAPI:
 
     def followers_list(self, username: int, count: int) -> requests.Response:
         """
-        Gets the list of users that are following a specified user by their user ID.
+        Gets the list of users that are following a specified user by their username.
 
         Args:
-            username (int): The user ID of the user whose followers list to retrieve.
+            username (int): The username of the user whose followers list to retrieve.
             count (int): The maximum number of users to retrieve.
 
         Returns:
@@ -291,7 +300,7 @@ class TikToksAPI:
                 requests.Response: The response object containing information about the unlike.
             """
 
-            return self.toggle_like(0, video_id, session_id)
+            return self.toggle_like(0, video_id)
 
     def toggle_follow(self, like_type: int, username: int) -> requests.Response:
         self.session.params.update(
