@@ -6,6 +6,7 @@ TikToksAPI is a Python library for automating interactions with the TikTok API, 
   + `Un/follow a user`
   + `Get followers list`
   + `Get following list`
+  + Verify session ID
 + Posts
   + `Un/like a video`
 + Profile
