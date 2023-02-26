@@ -154,14 +154,14 @@ class TikToksAPI:
     
     def edit(self, enum: str, text: str) -> requests.Response: 
         """
-        Edits the specified text using the specified enumeration.
+        Edits the specified enumeration using the specified text.
     
         Args:
             enum (str): The enumeration to use for the edit. "signature" or "nickname" or "username"
-            text (str): The text to edit.
+            text (str): The text to set.
     
         Returns:
-            requests.Response: The response object containing the edited text.
+            requests.Response: The response object containing information after editing the enumeration.
         """
 
         data = {
@@ -237,7 +237,7 @@ class TikToksAPI:
 
         Args:
             username (str): The username of the user whose following list to retrieve.
-            count (int): The maximum number of users to retrieve.
+            count (int): The number of users to retrieve.
 
         Returns:
             requests.Response: The response object containing information about the following list.
@@ -251,7 +251,7 @@ class TikToksAPI:
 
         Args:
             username (str): The username of the user whose followers list to retrieve.
-            count (int): The maximum number of users to retrieve.
+            count (int): The number of users to retrieve.
 
         Returns:
             requests.Response: The response object containing information about the followers list.
