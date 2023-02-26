@@ -1,4 +1,4 @@
-<h1 align="center">📱 TikTok Private API (Not finished)</h1>
+<h1 align="center">📱 TikToksAPI (Not finished)</h1>
 TikToks private mobile API allows developers to access the full range of TikTok's private mobile API endpoints, providing comprehensive and in-depth functionality for building TikTok-based applications and integrations.
 
 ### `🔥` Features (More to come)
@@ -19,7 +19,7 @@ TikToks private mobile API allows developers to access the full range of TikTok'
 ### `⚙️` Setup
 - Star this project or else it wont work
 - Run the following command in CMD: `pip install requests`
-- Take a look at `./examples` to know how to use this wrapper
+- Take a look at [usage](https://github.com/aithedev/TikTok-Private-API/blob/main/USAGE.md) to know how to use this
 ***
 
 ### `🤝` Contributing
