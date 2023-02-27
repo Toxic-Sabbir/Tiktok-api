@@ -107,7 +107,7 @@ class TikToksAPI:
         return requests.Response
 
     def get_user_ids(self, username) -> dict:
-        requests.Response = requests.post(
+        response = requests.post(
             url = f"https://search16-normal-c-useast1a.tiktokv.com/aweme/v1/search/user/sug/?iid=7202411203019441925&device_id=7147445232161539590&ac=wifi&channel=googleplay&aid=1233&app_name=musical_ly&version_code=270804&version_name=27.8.4&device_platform=android&ab_version=27.8.4&ssmix=a&device_type=ASUS_Z01QD&device_brand=Asus&language=en&os_api=25&os_version=7.1.2&openudid=704713c0da01388a&manifest_version_code=2022708040&resolution=1024*576&dpi=191&update_version_code=2022708040&_rticket=1674508422512&app_type=normal&sys_region=CN&mcc_mnc=20408&timezone_name=Asia%2FShanghai&ts=1674508425&timezone_offset=28800&build_number=27.8.4&region=CN&uoo=0&app_language=en&carrier_region=NL&locale=en&op_region=NL&ac2=wifi&host_abi=armeabi-v7a&cdid=5b45c87e-eaea-47d9-9d73-f9cef7ecabb5",
             headers = {
                 'accept-encoding': 'gzip',
@@ -137,8 +137,8 @@ class TikToksAPI:
         ).json()
 
         return {
-            "sec_user_id": requests.Response["sug_list"][0]["extra_info"]['sug_sec_user_id'],
-            "user_id": requests.Response["sug_list"][0]["extra_info"]['sug_user_id']
+            "sec_user_id": response["sug_list"][0]["extra_info"]['sug_sec_user_id'],
+            "user_id": response["sug_list"][0]["extra_info"]['sug_user_id']
         }
 
     def verify(self) -> requests.Response:
