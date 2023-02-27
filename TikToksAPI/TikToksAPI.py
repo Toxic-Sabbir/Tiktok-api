@@ -96,7 +96,7 @@ class TikToksAPI:
 
     @staticmethod
     def user_info(self) -> requests.Response:
-        requests.Response = requests.get(
+        response = requests.get(
             url = "https://www.tiktok.com/passport/web/account/info/",
             headers = {
                 "cookie"     : f"sessionid={self.session_id}",
@@ -104,7 +104,7 @@ class TikToksAPI:
             }
         )
         
-        return requests.Response
+        return response
 
     def get_user_ids(self, username) -> dict:
         response = requests.post(
