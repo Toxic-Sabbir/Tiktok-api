@@ -13,7 +13,7 @@ from .utils.signature import signature
 class TikToksAPI:
     def __init__(
         self,
-        session_id: str,
+        session_id: str = None,
         custom_device_id: dict = None
     ) -> None:
 
@@ -83,20 +83,13 @@ class TikToksAPI:
 
     @staticmethod
     def cookies_to_session(cookies: str) -> str:
-        """
-        Convert cookies string to session ID.
-    
-        Args:
-            cookies (str): A string of cookies received from a client.
-    
-        Returns:
-            str: The session ID parsed from the cookies string.
-        """
-        return cookies.split(";")[13].replace(" ", "")
+        session_id = re.search(r"(\w{32})", string)
+        if session_id:
+            return session_id.group(0)
 
     @staticmethod
     def user_info(self) -> requests.Response:
-        response = requests.get(
+        requests.Response = requests.get(
             url = "https://www.tiktok.com/passport/web/account/info/",
             headers = {
                 "cookie"     : f"sessionid={self.session_id}",
@@ -104,9 +97,9 @@ class TikToksAPI:
             }
         )
         
-        return response
+        return requests.Response
 
-    def get_user_ids(self, username) -> dict:
+    def get_user_ids(self, username: str) -> dict:
         response = requests.post(
             url = f"https://search16-normal-c-useast1a.tiktokv.com/aweme/v1/search/user/sug/?iid=7202411203019441925&device_id=7147445232161539590&ac=wifi&channel=googleplay&aid=1233&app_name=musical_ly&version_code=270804&version_name=27.8.4&device_platform=android&ab_version=27.8.4&ssmix=a&device_type=ASUS_Z01QD&device_brand=Asus&language=en&os_api=25&os_version=7.1.2&openudid=704713c0da01388a&manifest_version_code=2022708040&resolution=1024*576&dpi=191&update_version_code=2022708040&_rticket=1674508422512&app_type=normal&sys_region=CN&mcc_mnc=20408&timezone_name=Asia%2FShanghai&ts=1674508425&timezone_offset=28800&build_number=27.8.4&region=CN&uoo=0&app_language=en&carrier_region=NL&locale=en&op_region=NL&ac2=wifi&host_abi=armeabi-v7a&cdid=5b45c87e-eaea-47d9-9d73-f9cef7ecabb5",
             headers = {
@@ -114,7 +107,7 @@ class TikToksAPI:
                 'connection': 'Keep-Alive',
                 'content-length': '65',
                 'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
-                'cookie': 'sessionid=6db9138c78bb3f915cf7e73e0ff75caf;',
+                'cookie': secrets.token_hex(32),
                 'host': 'search16-normal-c-useast1a.tiktokv.com',
                 'multi_login': '1',
                 'passport-sdk-version':'19', 
