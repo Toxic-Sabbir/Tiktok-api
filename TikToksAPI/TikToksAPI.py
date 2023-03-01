@@ -3,7 +3,6 @@
 
 import Terminalia
 import requests
-import secrets
 import hashlib
 import urllib
 import time
@@ -107,7 +106,7 @@ class TikToksAPI:
                 'connection': 'Keep-Alive',
                 'content-length': '65',
                 'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
-                'cookie': secrets.token_hex(32),
+                'cookie': "sessionid=6db9138c78bb3f915cf7e73e0ff75caf;,
                 'host': 'search16-normal-c-useast1a.tiktokv.com',
                 'multi_login': '1',
                 'passport-sdk-version':'19', 
