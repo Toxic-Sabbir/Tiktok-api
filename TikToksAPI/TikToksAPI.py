@@ -13,7 +13,7 @@ from .utils.signature import signature
 class TikToksAPI:
     def __init__(
         self,
-        session_id: str = None,
+        session_id: str,
         custom_device_id: dict = None
     ) -> None:
 
