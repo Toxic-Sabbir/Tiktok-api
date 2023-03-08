@@ -36,6 +36,5 @@ Contributions, issues and feature requests are welcome!<br/>Feel free to check o
 > **Note** This is for educational purposes only.
 
 ## `🧑‍💻` Contact
-- **Website**: https://aithe.dev/
 - **Telegram**: t.me/aithedev
-- **Discord**: ai#4444
+- **Discord**: ai#4444 (1078432806646054922)
